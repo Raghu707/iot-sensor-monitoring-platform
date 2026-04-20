@@ -1,18 +1,28 @@
-import dotenv from "dotenv";
-import app from "./app.js";
-import { connectDB } from "./config/db.js";
+import express from 'express';
+import mongoose from 'mongoose';
 
-dotenv.config();
+// --- Create Express App ---
+const app = express();
+app.use(express.json());
 
-const PORT = 5000;
+// --- MongoDB Connection ---
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('✅ MongoDB connected successfully');
+  })
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err);
+  });
 
-(async () => {
-  try {
-    await connectDB(); // ✅ connect once
-    app.listen(PORT, () => {
-      console.log(`🚀 Backend running on http://localhost:${PORT}`);
-    });
-  } catch (err) {
-    console.error("❌ Server failed to start:", err);
-  }
-})();
+// --- Health Check Route ---
+app.get('/', (req, res) => {
+  res.send('✅ Backend is running');
+});
+
+// --- Start Server (MANDATORY FOR RENDER) ---
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
