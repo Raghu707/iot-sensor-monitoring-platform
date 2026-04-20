@@ -1,0 +1,47 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.calendar-card, .chart-card {
+  background: #fff;
+  padding: 22px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.day {
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.has-data {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.no-data {
+  background: #fdecea;
+  color: red;
+  cursor: default;
+}
+
+.no-record {
+  font-size: 10px;
+}
+
+.pie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}

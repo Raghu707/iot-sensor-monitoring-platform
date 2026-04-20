@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <h1>🌱 Soil Monitor</h1>
+    <p class="subtitle">Login to continue</p>
+
+    <input type="email" placeholder="Email" [(ngModel)]="email">
+    <input type="password" placeholder="Password" [(ngModel)]="password">
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <button class="primary" (click)="login()" [disabled]="loading">
+      {{ loading ? 'Logging in...' : 'Login' }}
+    </button>
+
+    <button class="secondary" (click)="goToRegister()">
+      Create new account
+    </button>
+  </div>
+</div>

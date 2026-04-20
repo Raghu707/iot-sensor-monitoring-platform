@@ -1,0 +1,25 @@
+<div class="app-container">
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="brand">
+      🌱 Smart Moisture
+    </div>
+
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Smart Moisture System · Green Engineering
+  </footer>
+
+</div>

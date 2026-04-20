@@ -1,0 +1,21 @@
+<h2>📊 Live Dashboard</h2>
+
+<div *ngIf="loading">Loading latest data...</div>
+
+<div *ngIf="latest && !loading" class="card">
+
+  <h1>{{ latest.humidity }}%</h1>
+  <p>Status: <strong>{{ status }}</strong></p>
+
+  <p>🌡 Temperature: {{ latest.temperatureC }} °C</p>
+  <p>🔋 Battery: {{ latest.battery }}%</p>
+
+  <p class="time">
+    Updated: {{ latest.createdAt | date:'medium' }}
+  </p>
+
+  <button (click)="refreshFromTuya()" [disabled]="refreshing">
+    {{ refreshing ? 'Refreshing...' : 'Refresh from Tuya' }}
+  </button>
+
+</div>

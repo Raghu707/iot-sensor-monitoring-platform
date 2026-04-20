@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>📊 Sensor Data</h2>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button (click)="exportToPDF()">📄 Export PDF</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input type="number" placeholder="Min Temp °C" [(ngModel)]="minTemp">
+    <input type="number" placeholder="Max Humidity %" [(ngModel)]="maxHumidity">
+    <input type="date" [(ngModel)]="startDate">
+    <input type="date" [(ngModel)]="endDate">
+
+    <button (click)="applyFilters()">Apply</button>
+    <button class="reset" (click)="reset()">Reset</button>
+  </div>
+
+  <!-- Table -->
+  <div id="pdf-table">
+    <table *ngIf="paginatedData.length > 0">
+      <thead>
+        <tr>
+          <th (click)="sort('createdAt')">Date ⬍</th>
+          <th (click)="sort('temperatureC')">Temp °C ⬍</th>
+          <th (click)="sort('humidity')">Humidity % ⬍</th>
+          <th>Battery %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of paginatedData">
+          <td>{{ row.createdAt | date:'short' }}</td>
+          <td>{{ row.temperatureC }}</td>
+          <td>{{ row.humidity }}</td>
+          <td>{{ row.battery }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">◀ Prev</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next ▶</button>
+  </div>
+</div>

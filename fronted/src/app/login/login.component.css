@@ -1,0 +1,52 @@
+.auth-container {
+  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1920&q=85') no-repeat center center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-box {
+  background: white;
+  padding: 32px;
+  width: 360px;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.primary {
+  width: 100%;
+  padding: 12px;
+  background: #e60023;
+  color: white;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+}
+
+.secondary {
+  background: none;
+  border: none;
+  color: #2563eb;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 14px;
+}

@@ -1,0 +1,43 @@
+.header {
+  height: 60px;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.logo {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav a {
+  margin: 0 15px;
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.nav a.active {
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: #38bdf8;
+  color: #0f172a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

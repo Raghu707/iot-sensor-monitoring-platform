@@ -1,0 +1,87 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f1f8e9, #ffffff);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  height: 64px;
+  background: rgba(27, 94, 32, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: slideDown 0.5s ease;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.navbar a.active::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #a5d6a7;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+.logout-btn {
+  background: #c8e6c9;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  animation: fadeIn 0.4s ease;
+}
+
+/* FOOTER */
+.footer {
+  height: 48px;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #2e7d32;
+  border-top: 1px solid #c5e1a5;
+}
+
+/* ANIMATIONS */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

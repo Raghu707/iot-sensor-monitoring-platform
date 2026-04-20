@@ -1,0 +1,46 @@
+<div class="container">
+
+  <!-- CALENDAR -->
+  <h2>📅 Sensor Data Calendar</h2>
+  <div class="calendar-card">
+    <div class="calendar">
+      <div
+        class="day"
+        *ngFor="let d of calendar"
+        [class.has-data]="d.hasData"
+        [class.no-data]="!d.hasData"
+        (click)="selectDay(d)">
+        {{ d.date | date:'dd' }}
+        <div *ngIf="!d.hasData" class="no-record">No record</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 24 HOUR BAR -->
+  <div *ngIf="selectedDate" class="chart-card">
+    <h3>📊 24‑Hour Temperature & Humidity – {{ selectedDate }}</h3>
+    <canvas id="dayBarChart"></canvas>
+  </div>
+
+  <!-- LINE CHARTS -->
+  <div class="chart-card">
+    <h3>🌡 Temperature vs Time</h3>
+    <canvas id="tempChart"></canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>💧 Humidity vs Time</h3>
+    <canvas id="humidityChart"></canvas>
+  </div>
+
+  <!-- PIE CHARTS -->
+  <div class="pie-grid">
+    <div class="chart-card">
+      <canvas id="tempPieChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <canvas id="humidityPieChart"></canvas>
+    </div>
+  </div>
+
+</div>

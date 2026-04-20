@@ -1,0 +1,21 @@
+<header *ngIf="showHeader" class="header">
+
+  <div class="logo" routerLink="/home">
+    🌱 Soil Monitor
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/history" routerLinkActive="active">History</a>
+    <a routerLink="/data" routerLinkActive="active">Data</a>
+  </nav>
+
+  <div class="profile">
+    <div class="avatar" (click)="goProfile()">{{ userInitial }}</div>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+</header>
+
+<router-outlet></router-outlet>
