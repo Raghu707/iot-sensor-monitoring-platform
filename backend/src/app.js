@@ -7,7 +7,7 @@ import tuyaRoutes from "./routes/tuya.routes.js";
 
 const app = express();
 
-/* ✅ CORS – allow localhost + Render frontend */
+/* ✅ CORS – Express 5 compatible */
 app.use(
   cors({
     origin: [
@@ -19,10 +19,7 @@ app.use(
   })
 );
 
-/* ✅ ✅ THIS LINE WAS MISSING (CRITICAL) */
-app.options("*", cors());
-
-/* ✅ Body parser */
+/* ✅ IMPORTANT: THIS alone handles preflight */
 app.use(express.json());
 
 /* ✅ Routes */
@@ -35,3 +32,4 @@ app.get("/", (_req, res) => {
 });
 
 export default app;
+``
