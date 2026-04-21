@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoistureService {
 
-  private API = 'http://localhost:5000/api';
+  private API = `${environment.apiUrl}/api`;
 
   constructor(private http: HttpClient) {}
 
@@ -19,10 +20,10 @@ export class MoistureService {
   }
 
 getLatest() {
-  return this.http.get<any>('http://localhost:5000/api/readings/latest');
+  return this.http.get<any>(`${environment.apiUrl}/api/readings/latest`);
 }
 
 getAll() {
-  return this.http.get<any[]>('http://localhost:5000/api/readings');
+  return this.http.get<any[]>(`${environment.apiUrl}/api/readings`);
 }
 }

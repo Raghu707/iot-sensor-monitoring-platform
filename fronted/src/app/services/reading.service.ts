@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReadingService {
+  
+private BASE_URL = `${environment.apiUrl}/api`;
+private READINGS_URL = `${environment.apiUrl}/api/readings`;
 
-  private BASE_URL = 'http://localhost:5000/api';
-  private READINGS_URL = 'http://localhost:5000/api/readings';
 
   constructor(private http: HttpClient) {}
 

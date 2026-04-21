@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:5000/auth';
+  private baseUrl = environment.apiUrl;   // ✅ backend base URL
 
   constructor(
     private http: HttpClient,
@@ -14,30 +15,30 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http.post<{ token: string }>(
-      `${this.baseUrl}/login`,
+      `${this.baseUrl}/auth/login`,        // ✅ FIXED
       { email, password }
     );
   }
 
   register(email: string, password: string) {
     return this.http.post(
-      `${this.baseUrl}/register`,
+      `${this.baseUrl}/auth/register`,     // ✅ FIXED
       { email, password }
     );
   }
 
-  /** ✅ NEW: get logged-in user's email */
+  /** ✅ get logged-in user's email */
   getUserEmail(): string | null {
     return localStorage.getItem('email');
   }
 
-  /** ✅ NEW: logout user */
+  /** ✅ logout user */
   logout(): void {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
 
-  /** ✅ Optional helper */
+  /** ✅ check login */
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
