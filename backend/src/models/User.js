@@ -1,19 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     password: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-// ✅ maps to soil_monitor.users
-export default mongoose.model('User', UserSchema, 'users');
+export default mongoose.model("User", userSchema);
