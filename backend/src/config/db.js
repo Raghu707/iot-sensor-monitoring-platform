@@ -1,19 +1,21 @@
 import { MongoClient } from "mongodb";
 
-const MONGO_URL = "mongodb://127.0.0.1:27017";
-const DB_NAME = "soil_monitor";
+let db; // singleton
 
-let client;
-let db;
-
-export async function connectDB() {
+export const connectDB = async () => {
   if (db) return db;
 
-  client = new MongoClient(MONGO_URL);
+  const uri = process.env.MONGODB_URI;
+
+  if (!uri) {
+    throw new Error("MONGODB_URI is not defined");
+  }
+
+  const client = new MongoClient(uri);
   await client.connect();
 
-  db = client.db(DB_NAME);
-  console.log("✅ MongoDB connected");
+  db = client.db(); // ✅ THIS IS THE KEY
+  console.log("✅ MongoDB connected (native driver)");
 
   return db;
-}
+};
