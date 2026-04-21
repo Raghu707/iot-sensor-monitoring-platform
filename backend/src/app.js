@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:4200",
-      "https://iot-frontend.onrender.com"
+      "https://iot-sensor-monitoring-platform-system.onrender.com"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
