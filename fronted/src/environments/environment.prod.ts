@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://iotservice-rdsn.onrender.com'
+  apiUrl: 'https://iot-web-ggp9.onrender.com'
 };
