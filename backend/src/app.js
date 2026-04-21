@@ -10,7 +10,10 @@ const app = express();
 /* ✅ CORS FIX — no wildcard OPTIONS */
 app.use(
   cors({
-    origin: "http://localhost:4200",
+    origin: [
+      "http://localhost:4200",              // local Angular
+      "https://iot-frontend.onrender.com"   // Render frontend
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
   })
