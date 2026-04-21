@@ -7,19 +7,19 @@ import tuyaRoutes from "./routes/tuya.routes.js";
 
 const app = express();
 
-/* ✅ CORS FIX — no wildcard OPTIONS */
+/* ✅ CORS – Express 5 compatible */
 app.use(
   cors({
     origin: [
-      "http://localhost:4200",              // local Angular
-      "https://iot-frontend.onrender.com"   // Render frontend
+      "http://localhost:4200",
+      "https://iot-frontend.onrender.com"
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
-/* ✅ Body parser */
+/* ✅ IMPORTANT: THIS alone handles preflight */
 app.use(express.json());
 
 /* ✅ Routes */
@@ -32,3 +32,4 @@ app.get("/", (_req, res) => {
 });
 
 export default app;
+``
